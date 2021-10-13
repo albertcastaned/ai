@@ -1,9 +1,10 @@
 import sys
 from os import getcwd
 import pandas as pd
+from scipy.sparse import data
+from spam_classifier import SpamClassifier
 
-
-def avg_char_capital_uninterrupted(content):
+def char_capital_uninterrupted(content):
     lengths_uninterrupted = []
     temp_count = 0
     for char in content:
@@ -16,7 +17,11 @@ def avg_char_capital_uninterrupted(content):
 
     if temp_count > 0:
         lengths_uninterrupted.append(temp_count)
-    return sum(lengths_uninterrupted) / len(lengths_uninterrupted)    
+    if len(lengths_uninterrupted):
+        return [sum(lengths_uninterrupted) / len(lengths_uninterrupted), \
+                max(lengths_uninterrupted), sum(lengths_uninterrupted)]
+    else:
+        return [0,0,0]
 
 
 if len(sys.argv) != 2:
@@ -39,4 +44,10 @@ else:
             100 * content.count(char) / content_length
             for char in char_freq_columns
         ]
-        print(char_count_data)
+        capital_data = char_capital_uninterrupted(
+            content=content
+        )
+        query_data = word_count_data + char_count_data + capital_data
+        classifier = SpamClassifier()
+        classifier.query([query_data])
+
