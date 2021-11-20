@@ -1,0 +1,14 @@
+Attention! The round starts on Sunday.
+Hello, Enron. Welcome to the regular Codeforces round.
+
+I'm glad to invite you to take part in Codeforces Round 755. Actually it will be two separate rounds "Codeforces Round #755 (Div. 1 Only)" and "Codeforces Round #755 (Div. 2 Only)". The division problemsets will share many problems, but not all of them will be the same. So, Div. 1 users should register on "Codeforces Round #755 (Div. 1 Only)" while Div. 2 users should register on "Codeforces Round #755 (Div. 2 Only)". It starts on Sunday, November, 14, 2021 06:05 (UTC). The contest duration is 2 hours. The allowed programming languages are C/C++, Pascal, Java, C#, Python, Ruby, Perl, PHP, Haskell, Scala, OCaml, Go, D, JavaScript and Kotlin. The rounds are rated.
+
+The round is prepared jointly by a group of high-rated authors. Do not miss the round!
+
+If you are Russian-speaking high-school student, please register onand take part in the official Elimination Round.
+
+The round will be held on the rules of Codeforces, so read the rules (here and here) beforehand. The round will be for newcomers and participants from the both divisions. Want to compete? Do not forget to register for the contest and check your handle on the registrants page. The registration will be closed 5 minutes before the contest.
+
+If you have any questions, please feel free to ask me on the pages of Codeforces. If you no longer wish to receive these emails, click to unsubscribe.
+
+Wish you high rating

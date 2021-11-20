@@ -1,0 +1,16 @@
+Postman
+New Plans and Pricing
+
+We are continuously adding capabilities to our platform—based on what you, our customers, need—serving everyone from individual developers to large enterprises with thousands and thousands of developers.
+
+We love developers and we’ve added great tools and functionality over the last 18 months including the Postman v9 update in September, API Builder, public workspaces, and much more.
+
+Over the years, enterprises have also become key customers. Postman recognizes that enterprises have significant needs beyond those of smaller teams of developers, and we’ve made massive investments this year to address those needs, too.
+
+To keep up with the customers we serve, we’re making several updates—including new names and new pricing for some Postman plans.
+
+Postman Co-Founder and CEO Abhinav Asthana’s new blog post has all the details, and we encourage you to take a look. And yes, we will continue to offer a Free plan for teams of up to three. (If you are thinking about upgrading, now is a good time!)
+
+We'll follow up shortly with your admins about all changes specific to your plan. Got questions? Send an email to and we’ll get back to you.
+
+As always, thanks for being a part of the Postman community.
