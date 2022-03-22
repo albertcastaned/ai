@@ -1,1 +1,1 @@
-# AI Personal Repository for school or personal projects
+# Machine Learning / Deep Learning repository for school and personal projects
