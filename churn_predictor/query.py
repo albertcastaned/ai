@@ -98,7 +98,7 @@ if __name__ == "__main__":
     scratch_logistic_model = predictor.logistic_model
     input_data = []
 
-    with open("scaler.pkl", "rb") as file:
+    with open("pickles/scaler.pkl", "rb") as file:
         scaler = pickle.load(file)
 
     if scratch_logistic_model or not scaler:

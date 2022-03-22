@@ -9,7 +9,7 @@ class LogisticRegression:
     def __init__(self, alpha=0.0001, epochs=8000, plot=False) -> None:
         # Initialize class with pickle if found. Overriden everytime the model is fitted.
         try:
-            file = open(self.PICKLE_FILE_NAME, "rb")
+            file = open("pickles/" + self.PICKLE_FILE_NAME, "rb")
             tmp_dict = pickle.load(file)
             self.__dict__.update(tmp_dict)
         except:
@@ -54,14 +54,13 @@ class LogisticRegression:
         self._save_pickle_()
 
     def _save_pickle_(self):
-        file = open(self.PICKLE_FILE_NAME, 'wb')
+        file = open("pickles/" + self.PICKLE_FILE_NAME, 'wb')
         pickle.dump(self.__dict__, file, 2)
         file.close()
 
     def predict(self, x) -> np.ndarray:
         model = np.dot(x, self.weights) + self.bias
         numerical_predictions = self._sigmoid_(model)
-        print(numerical_predictions)
         predictions = [1 if i > self.TRESHOLD else 0 for i in numerical_predictions]
         return np.array(predictions)
 

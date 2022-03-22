@@ -22,7 +22,7 @@ if __name__ == "__main__":
     x_test = scaler.transform(x_test)
 
     # Save scaler as pickle
-    file = open("scaler.pkl", 'wb')
+    file = open("pickles/scaler.pkl", 'wb')
     pickle.dump(scaler, file, 2)
     file.close()
 
