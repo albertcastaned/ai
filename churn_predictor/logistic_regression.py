@@ -6,7 +6,7 @@ class LogisticRegression:
     PICKLE_FILE_NAME = "scratch_lb.pkl"
     TRESHOLD = 0.5
 
-    def __init__(self, alpha=0.0001, epochs=8000, plot=False) -> None:
+    def __init__(self, alpha=0.001, epochs=6000, plot=False) -> None:
         # Initialize class with pickle if found. Overriden everytime the model is fitted.
         try:
             file = open("pickles/" + self.PICKLE_FILE_NAME, "rb")
@@ -63,6 +63,11 @@ class LogisticRegression:
         numerical_predictions = self._sigmoid_(model)
         predictions = [1 if i > self.TRESHOLD else 0 for i in numerical_predictions]
         return np.array(predictions)
+
+    def predict_probabilities(self, x) -> np.ndarray:
+        model = np.dot(x, self.weights) + self.bias
+        numerical_predictions = self._sigmoid_(model)
+        return np.array(numerical_predictions)
 
     def ready(self) -> bool:
         return self.weights and self.bias
