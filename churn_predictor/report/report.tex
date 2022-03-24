@@ -29,41 +29,37 @@ Intelligent Systems Technologies
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-Churn prediction is critical for many businesses that need to identify customers that are at risk of cancelling the business service.
-By predicting these customers, businesses can reduce costs of adquire new clients by retaining the existing ones. Given that the churn
-prediction is a binary classification problem, in this project a Logistic Regression model made from scratch to predict was proposed to
-predict if a customer will cancel a service or 'churn' given his or her recorded atributes. 
+Churn prediction is a useful tool for businesses that need to identify customers which have a high chance of cancelling their services.
+With the ability to create these predictions on demand, businesses can reduce costs of adquiring new clients by retaining the existing ones. In this project, a Logistic Regression model made from scratch was analyzed and developed to
+predict if a customer will cancel a service or 'churn' given their recorded atributes. 
 \end{abstract}
 
 \section{ Introduction }
 Churn refers to a regular, quantifiable process or rate of change that occurs in a business over a period of time as existing customers are
-lost and new customers are added [1]. While every customer that cancels a business service has a different reason, some even personal reasons,
-there are factors that contribute to this decision that businesses look for in order to predict and find out improvement areas of their operations 
+lost and new customers are added [1]. While every customer could have a different reason for unsubscribing from a service, some even personal reasons,
+there are predictors that can be used in order to find out improvement areas of their operations 
 so that their churn rate can become lower. \\
 
-Given the previously mentioned factors of customers, the purpose of this project is to create a tool that predicts whether a customer is likely to cancel the service
-or 'churn' so that further efforts can be made to retain that customer since it is cheaper to retain current customers in businesses rather than obtaining new ones. \\
+Given the previously mentioned existing predictors of customers, the purpose of this project is to create a tool that predicts whether a customer is likely to cancel the service
+or 'churn' so that further efforts can be made to retain that customer. \\
 
 
-The problem can be categorized as a binary classification problem where what is trying to be predicted is if a customer is likely to churn or not.
-To tackle this problem there is multiple classifcation machine learning algorithms that given data are able to predict this binary outcome.
-For this project, a logistic regression model made from scratch was proposed. \\
+The problem can be described as a binary classification problem where the desired output that needs to be predicted is if a given customer is likely to churn or not.
+To tackle this problem, there is multiple classifcation machine learning algorithms that are able to classify binary outcomes in order to make these predictions.
+For this project, a Logistic Regression model made from scratch is proposed fo its simplicity and speed. \\
 
-For this project, a Logistic Regression model made from scratch is proposed to handle this classifcation problem. Additionally, the model
-will be fitted alongside other implementations from the Python SciKit library to compare the accuracy and fitting speed of each one of them.
+Additionally, the model will be trained alongside other implementations from the SciKit framework to compare their accuracy and training speed between each other.
 
 \section{ Theory }
 \subsection{Logistic Regression}
 Logistic Regression is a statistical method used to obtain the probability of a certain class existing based
-on input variables that are defined for the model.
+on input variables that are defined for the model. \\
 
-In Machine Learning, logistic regression can be used as a tool to create accurate predictions of outcomes given some predictor variable data.
-\\
+In Machine Learning, Logistic Regression can be used as a tool to create accurate predictions of outcomes given some predictor variable data. \\
 
-
-While there is multiple types of logistic  regression depending on what needs to be achieved, for this case a binary logistic regression is needed in order
-to predict a churn or not churn prediction. Like the name of the model implies, a binary result will be given to represent the outcome; the value being either 1, or 0.
-As previously mentioned, logistic regression outputs a continous number between 0 and 1, which is why we must define a threshold (defined as 0.5 by default) in order to 
+While there are multiple types of Logistic Regression depending on what needs to be achieved, for this case a Binary Logistic Regression is used in order
+to predict a churn or not churn prediction. Like the name of the model implies, the outcome will be represented by a binary value; the value being either 1, or 0.
+As previously mentioned, Logistic Regression outputs a continous number between 0 and 1, which is why we must define a threshold (defined as 0.5 by default) in order to 
 transform this continous value to a 0 or 1 value.
 \\
 
@@ -75,19 +71,21 @@ transform this continous value to a 0 or 1 value.
     \label{logisticThreshold}
  \end{figure}
 
+Using Figure 1 as an example of the previous idea, every value above 0.5 would be classified as 1 while the opposite would be classified as 0. \\
 
-Figure 1 could be represented by a sigmoid function, which has the formula:
+The function of Figure 1 could be represented by a sigmoid function, which has the formula:
 
 \begin{figure}[thpb]
     \centering
     \begin{equation}
-        y = g(x) = /frac{1}{1 + e^{-x}}
+        y = g(x) = \frac {1}{1 + e^{-x}}
     \end{equation}
     \caption{Sigmoid Function}
     \label{sigmoid_formula}
  \end{figure}
 
- The function for the logistic regression would be defined as:
+ Transforming Figure 2 with the base hypothesis formula from Linear Regressions, the formula for the Logistic Regression is defined as:
+
  \begin{figure}[thpb]
     \centering
     \begin{equation}
@@ -100,21 +98,22 @@ Figure 1 could be represented by a sigmoid function, which has the formula:
 \subsection{Cost Function}
 Cost functions are used to determine the minimization needed to make models have a better performance. The function reflects how much
 the predicted output differs from the original output with the goal of optimizing the model. In other words, we use the cost function to measure how
-close the model's predictions are to the real outputs.
+close the model's predictions are to the real outputs. For binary classifcation models, a Cross-Entropy loss function is required. The formula
+for such function goes as follows:
 
 \begin{figure}[thpb]
     \centering
     \begin{equation}
         J(\theta) = - \frac{1}{m}\sum_{i = 1}^{m} y^i \log h_\theta(x^i) + (1-y^i)\log(1 - h_\theta(x^i))
     \end{equation}
-    \caption{Cost function formula}
+    \caption{Cross-Entropy loss formula}
     \label{cost_formula}
  \end{figure}
 
 \subsection{Gradient Descent}
 Gradient Descent is an iterative optimization algorithm which finds the minimum of a diferentiable function. In this case, Gradient Descent
-can be applied to the cost function of logistic regression to find an optimizal solution. By applying the previously established
-hypothesis function to the gradient descent formula we would get:
+can be applied to the cost function of Logistic Regression to find the optimial parameters for our hypothesis. By applying the previously established
+hypothesis function to the gradient descent formula, we would get:
 
 
 \begin{figure}[thpb]
@@ -122,14 +121,14 @@ hypothesis function to the gradient descent formula we would get:
     \begin{equation}
         \theta_j = \theta_j - \alpha\frac{1}{m}\sum_{i = 1}^{m}((h_\theta(x^i) - y^i)x^i_j)
     \end{equation}
-    \caption{Gradient descent with logistic Regression formula formula}
+    \caption{Gradient descent with Logistic Regression}
     \label{gd_formula}
  \end{figure}
 
 \section{ Data }
 \subsection{ Dataset }
-For this project, the dataset chosen to train the models is the Telco customer churn dataset from Kaggle [2]. The dataset contains the Telco Company
-customer's characteristics and contract information while also indicating whether the customer departed within the last month.
+For this project, the dataset chosen to train the models is a Telephone Company customer dataset provided from IBM and retrieved from Kaggle [2].
+The dataset contains the Telephone Company (Telco) customer's characteristics and contract information while also indicating whether the customer departed from the company within the last month.
 
 \subsection{ Data Analysis}
 
@@ -191,18 +190,18 @@ Additionally, as mentioned in the previous section there are some empty cells th
 these empty cells so a MonthlyCharge * tenure calculation is used to fill these cells.
 
 
-Lastly, since our model will be working with a sigmoid function, we must normalize our values to prevent overflow errors that can be thrown with the exponential divider.
-Initially, the model did not scale the features which caused multiple overflow warnings and lower accuracy overall. \\
+Lastly, since our model will be working with a sigmoid function, we must normalize our values to prevent overflow errors that can be thrown with the exponential tending toward small numerical values on infinity.
+Initially, the models did not scale the features which caused multiple overflow warnings and lower accuracy overall. \\
 
 To do this, the StandardScaler class from the SciKit library is used to scale the training and test data.
 
 \section{ Results }
 
 \subsection{ Fitting }
-In order to test our models, cross validation was used with 20\% of the data used for testing. \\
+In order to test our models, the dataset was split with 20\% of the data used for testing and 80\% for training. \\
 
 The Logistic Regression model made from scratch was trained with 8000 epochs and a learning rate of 0.001. The following chart represents the
-cost function compared to each epoch.
+Cross-Entropy loss function compared to each epoch.
 
 \begin{figure}[thpb]
     \centering
@@ -223,7 +222,7 @@ After fitting each model, the following prediction accuracy percentages were giv
     \label{accuracy}
  \end{figure}
 
-As seen on the plot, our logistic regression model got approximately 78.1 \% accuracy during testing, slightly lower than the SciKit framework
+As seen on the plot, our Logistic Regression model got approximately 78.1 \% accuracy during testing, slightly lower than the SciKit framework
 implementation. However, the previous two models consistently got ~6 \% higher accuracy than the SciKit framework implementation of a Decision Tree Classsifer. \\
 
 \subsection{Training time}
@@ -234,7 +233,7 @@ implementation. However, the previous two models consistently got ~6 \% higher a
     \label{training_time}
  \end{figure}
 
- As seen on the plot, our logistic regression model was approximately 10x time slower than other models from the SciKit framework with the same data.
+ As seen on the plot, our Logistic Regression model was approximately 10x time slower than other models from the SciKit framework with the same data.
  The reason for this drastic difference could be attributed to the lack of parralelization in the model made from scratch, which SciKit
  uses to improve training speed performance.
 
@@ -247,7 +246,7 @@ implementation. However, the previous two models consistently got ~6 \% higher a
  \end{figure}
 
 
-As seen on the previous vector of confusion matrix, the scratch logistic regression model has approximately equal False Negatives compared to False Positives.
+As seen on the previous vector of confusion matrix, the scratch Logistic Regression model has approximately equal False Negatives compared to False Positives.
 On the other hand, the SciKit implementation has a higher ratio of False Negatives compared to False Positives.
 Lastly, the SciKit implementation of Decision Tree ratio of False Negatives to False Positives is similar to the first model but higher. 
 
@@ -267,9 +266,9 @@ The curve is compared with the threshold and a larger the area under the curve (
 
  
 \section{ Discussion }
-While the theory was applied succesfully and the scratch logistic regression model got pretty similar results to that of the SciKit implementation,
+While the theory was applied succesfully and the scratch Logistic Regression model got pretty similar results to that of the SciKit implementation,
 all of the models could have better accuracy (with an average of 80 \% at best). A standalone query script was developed additionally to 
-obtain input data from the user to create a predition with the scratch logistic regression model. Some tests were done with this query program
+obtain input data from the user to create a predition with the scratch Logistic Regression model. Some tests were done with this query program
 to intentionally trigger Churn and Not Churn predictions. However, most of these queries resulted in False Negatives. The previous experiments 
 imply that the models may be overfitting with the dataset. Other approaches in the state of the art which use the same dataset were investigated and it was found
 that these approaches resulted in approximately similar accuracy percentages. This implies that the problem could be from the dataset itself. 
