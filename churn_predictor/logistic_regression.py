@@ -1,3 +1,10 @@
+'''
+Logistic Regression from Scratch
+Source: 
+    - Tutorial: https://www.youtube.com/watch?v=JDU3AzH3WKg&list=PLqnslRFeH2Upcrywf-u2etjdxxkL8nl7E&index=3
+    - Source Code: https://github.com/python-engineer/MLfromscratch/blob/master/mlfromscratch/logistic_regression.py
+'''
+
 import pickle
 import numpy as np
 import matplotlib.pyplot as plt

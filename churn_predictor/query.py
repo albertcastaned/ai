@@ -6,6 +6,10 @@ from predictor import ChurnPredictor
 from sklearn import preprocessing
 from collections.abc import Iterable
 
+
+'''
+Source: https://stackoverflow.com/questions/2158395/flatten-an-irregular-list-of-lists
+'''
 def flatten(l):
     for el in l:
         if isinstance(el, Iterable) and not isinstance(el, (str, bytes)):
