@@ -10,6 +10,10 @@ def conv_block(in_channels, out_channels, pool=False):
     if pool: layers.append(nn.MaxPool2d(2))
     return nn.Sequential(*layers)
 
+def accuracy(outputs, labels):
+    _, predictions = torch.max(outputs, dim=1)
+    return torch.tensor(torch.sum(predictions == labels).item() / len(predictions))
+
 class ImageClassificationBase(nn.Module):
     def training_step(self, batch):
         images, labels = batch 
@@ -21,8 +25,7 @@ class ImageClassificationBase(nn.Module):
         images, labels = batch 
         out = self(images)
         loss = F.cross_entropy(out, labels)
-        #acc = accuracy(out, labels)
-        acc = 2
+        acc = accuracy(out, labels)
         return {'val_loss': loss.detach(), 'val_acc': acc}
         
     def validation_epoch_end(self, outputs):
