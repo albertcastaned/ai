@@ -88,9 +88,11 @@ train_dir = "/asl_alphabet_train/asl_alphabet_train"
 classes = os.listdir(data_dir + train_dir)
 
 
-# Set transform
+# Set transform. Reference from: https://pytorch.org/vision/main/transforms.html
 transform = transforms.Compose([
     transforms.Resize(32),
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotate(degree=10),
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
@@ -111,7 +113,7 @@ train_dataset, validation_dataset, test_dataset = random_split(dataset, [train_s
 
 # Create dataloaders
 
-batch_size = 64
+batch_size = 32
 
 train_dataloader = DataLoader(train_dataset, batch_size, shuffle=True, num_workers=4, pin_memory=True)
 validation_dataloader = DataLoader(validation_dataset, batch_size, shuffle=True, num_workers=4, pin_memory=True)
@@ -130,11 +132,11 @@ model.to(device)
 history = [evaluate(model, validation_dataloader)]
 history
 
-epochs = 15
+epochs = 8
 max_lr = 0.01
 grad_clip = 0.1
 weight_decay = 1e-4
-opt_func = torch.optim.Adam
+optimizer = torch.optim.Adam
 
 history += fit_one_cycle(
     epochs,
@@ -144,7 +146,7 @@ history += fit_one_cycle(
     validation_dataloader, 
     grad_clip=grad_clip, 
     weight_decay=weight_decay, 
-    opt_func=opt_func
+    opt_func=optimizer
 )
 
 torch.save(model.state_dict(), 'aux.pth')

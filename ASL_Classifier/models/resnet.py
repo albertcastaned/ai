@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+# Adapted and generalized from https://github.com/kuangliu/pytorch-cifar/blob/master/models/resnet.py
+
 
 def conv_block(in_channels, out_channels, pool=False):
     layers = [nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1), 

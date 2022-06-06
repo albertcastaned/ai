@@ -1,6 +1,5 @@
 from PIL import Image
 import torch
-import numpy as np
 from models.resnet import ResNet
 import torchvision.transforms as transforms
 
