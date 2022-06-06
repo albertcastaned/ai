@@ -20,6 +20,7 @@ def get_lr(optimizer):
     for param_group in optimizer.param_groups:
         return param_group['lr']
 
+# One Cycle Policy : https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.OneCycleLR.html
 def fit_one_cycle(epochs, max_lr, model, train_loader, val_loader, 
                   weight_decay=0, grad_clip=None, opt_func=torch.optim.SGD):
     torch.cuda.empty_cache()
